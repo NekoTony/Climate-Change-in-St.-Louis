@@ -1,4 +1,5 @@
-# Climate-Change-in-St.-Louis
-HBCA Hackathon St. Louis Project
+# Climate Change in St.Louis
+### HBCA Hackathon St. Louis Nov 2021 Project by the Cool Ducks
+main.py is the main instance of flask
 
-myproject.py is the main flask file
+Check out our websites by [clicking here](https://stlclimate.uc.r.appspot.com/)
