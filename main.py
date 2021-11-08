@@ -24,10 +24,10 @@ def contact():
     return render_template('contact.html')
 
 def getdata():
-    url, tname, fname = "https://www.weather.gov/media/lsx/climate/stl/temp/temp_stl_annual_averages.pdf", "temp.pdf", 'data.pdf'
+    url, tname, fname = "https://www.weather.gov/media/lsx/climate/stl/temp/temp_stl_annual_averages.pdf", "static/temp.pdf", 'static/data.pdf'
     print(download_from_url(url, tname, fname))
-    print(convert_data(fname, "data.json"))
-    d = get_data('data.json')
+    print(convert_data(fname, "static/data.json"))
+    d = get_data('static/data.json')
     d = handle_data(d)
     d = get_average(d)
     return d
