@@ -1,7 +1,8 @@
 from flask import Flask, render_template, send_file
 from os.path import exists
 import pandas as pd
-import json, numbers, collections, re, filecmp, urllib.request, tabula
+import json, numbers, collections, re, filecmp, urllib.request, tabula, matplotlib
+matplotlib.use('Agg')
 
 app = Flask(__name__, static_url_path="/static", static_folder='static')
 
@@ -10,32 +11,22 @@ def hello():
     return render_template('index.html')
 
 @app.route("/organizations")
-def hello():
+def organization():
     return render_template('organizations.html')
 
-@app.route("/stat")
-def hello():
+@app.route("/statistics")
+def stat():
+    lpname, dpname = "static/linegraph.png", "static/bargraph.png"
+    data = getdata()
+    get_line_graph(data, lpname)
+    get_box_graph(data, dpname)
     return render_template('statistic.html')
 
 @app.route("/contact")
-def hello():
+def contact():
     return render_template('contact.html')
 
-@app.route('/linegraph')
-def test():
-    filename = "lineplot.png"
-    data = get_data()
-    get_line_graph(data, filename)
-    return send_file(filename, mimetype='image/png')
-
-@app.route('/bargraph')
-def test():
-    filename = "bargraph.png"
-    data = get_data()
-    get_box_graph(data, filename)
-    return send_file(filename, mimetype='image/png')
-
-def get_data():
+def getdata():
     url, tname, fname = "https://www.weather.gov/media/lsx/climate/stl/temp/temp_stl_annual_averages.pdf", "temp.pdf", 'data.pdf'
     print(download_from_url(url, tname, fname))
     print(convert_data(fname, "data.json"))
@@ -49,7 +40,7 @@ def get_line_graph(d, filename):
     save_plot(line, filename)
     return line
 
-def get_box_graph():
+def get_box_graph(d, filename):
     line, bar = generate_plots(d['data'])
     save_plot(bar, filename)
     return line
@@ -205,4 +196,4 @@ def save_plot(plot, filename):
     return "Success with saving filename".format(filename)
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='127.0.0.1', port=8080, debug=True, threaded=True)
