@@ -175,7 +175,11 @@ def get_list(key, data):
 def generate_plots(data):
     df = pd.DataFrame(data)
     line_plot = df.plot(x='years', y='average', ylim=(54,60))
+    line_plot.set_ylabel("Degree's F")
+    line_plot.set_xlabel("Decades")
     bar_plot =  df.plot.barh(x='years', y='average', xlim=(50,60))
+    bar_plot.set_xlabel("Degree's F")
+    bar_plot.set_ylabel("Decades")
     return line_plot, bar_plot
 
 def save_plot(plot, filename):

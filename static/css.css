@@ -81,6 +81,7 @@ table.center {
 	height:200px !important;
 	width: 200px !important;
 	margin-top: 40px !important;
+	border-radius: 150px;
 }
 .contactTable th{
 	padding-left: 40px;
