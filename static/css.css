@@ -2,7 +2,11 @@ header.masthead {
 	height: 25% !important;
 	background-image: url('https://i.imgur.com/IegfElE.jpg') !important;
 }
-
+* {
+	text-align: center !important;
+	margin: auto 0;
+	font-family: Arial;
+}
 img {
   display: block;
   margin-left: auto;
@@ -13,6 +17,7 @@ table.center {
   margin-left: auto !important;
   margin-right: auto !important;
 	text-align: center !important;
+	margin: auto;
 }
 
 .class1 {
@@ -72,7 +77,6 @@ table.center {
 	height:200px !important;
 	width: 200px !important;
 	margin-top: 40px !important;
-
 }
 .contactTable th{
 	padding-left: 40px;
@@ -81,4 +85,37 @@ table.center {
 
 .contactTable #uniqueTable img{
 	margin-left: 40px;
+}
+
+.contactTable {
+	margin: auto !important;
+}
+
+
+.contactTable2 img{
+	height:300px !important;
+	margin-top: 40px !important;
+}
+.contactTable2 th{
+	padding-left: 40px;
+}
+
+
+.contactTable2 #uniqueTable img{
+	margin-left: 40px;
+}
+
+.contactTable2 {
+	margin: auto !important;
+}
+
+p {
+	margin: auto !important;
+	margin-bottom: 20px !important;
+}
+
+h1 {
+	margin: auto !important;
+	padding: auto !important
+	margin-bottom: 10px !important;
 }

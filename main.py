@@ -8,6 +8,11 @@ app = Flask(__name__, static_url_path="/static", static_folder='static')
 
 @app.route("/")
 def hello():
+    lpname, dpname = "static/linegraph.png", "static/bargraph.png"
+    d = getdata()
+    line, bar = generate_plots(d['data'])
+    save_plot(line, lpname)
+    save_plot(bar, dpname)
     return render_template('index.html')
 
 @app.route("/organizations")
@@ -16,10 +21,6 @@ def organization():
 
 @app.route("/statistics")
 def stat():
-    lpname, dpname = "static/linegraph.png", "static/bargraph.png"
-    data = getdata()
-    get_line_graph(data, lpname)
-    get_box_graph(data, dpname)
     return render_template('statistic.html')
 
 @app.route("/contact")
@@ -35,15 +36,6 @@ def getdata():
     d = get_average(d)
     return d
 
-def get_line_graph(d, filename):
-    line, bar = generate_plots(d['data'])
-    save_plot(line, filename)
-    return line
-
-def get_box_graph(d, filename):
-    line, bar = generate_plots(d['data'])
-    save_plot(bar, filename)
-    return line
 
 def download_from_url(url, tempname, finalname):
     urllib.request.urlretrieve(url, tempname)
