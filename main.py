@@ -7,23 +7,53 @@ app = Flask(__name__, static_url_path="/static", static_folder='static')
 
 @app.route("/")
 def hello():
-    z = "<h1 style='color:blue'>Hello There!</h1>"
     return render_template('index.html')
 
-@app.route('/test')
+@app.route("/organizations")
+def hello():
+    return render_template('organizations.html')
+
+@app.route("/stat")
+def hello():
+    return render_template('statistic.html')
+
+@app.route("/contact")
+def hello():
+    return render_template('contact.html')
+
+@app.route('/linegraph')
 def test():
+    filename = "lineplot.png"
+    data = get_data()
+    get_line_graph(data, filename)
+    return send_file(filename, mimetype='image/png')
+
+@app.route('/bargraph')
+def test():
+    filename = "bargraph.png"
+    data = get_data()
+    get_box_graph(data, filename)
+    return send_file(filename, mimetype='image/png')
+
+def get_data():
     url, tname, fname = "https://www.weather.gov/media/lsx/climate/stl/temp/temp_stl_annual_averages.pdf", "temp.pdf", 'data.pdf'
     print(download_from_url(url, tname, fname))
     print(convert_data(fname, "data.json"))
     d = get_data('data.json')
     d = handle_data(d)
     d = get_average(d)
-    line, bar = generate_plots(d['data'])
-    save_plot(line, "lineplot.png")
-    save_plot(bar, "bargraph.png")
-    return send_file('lineplot.png', mimetype='image/png')
+    return d
 
-### Functions
+def get_line_graph(d, filename):
+    line, bar = generate_plots(d['data'])
+    save_plot(line, filename)
+    return line
+
+def get_box_graph():
+    line, bar = generate_plots(d['data'])
+    save_plot(bar, filename)
+    return line
+
 def download_from_url(url, tempname, finalname):
     urllib.request.urlretrieve(url, tempname)
     if exists(finalname):
