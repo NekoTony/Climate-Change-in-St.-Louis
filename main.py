@@ -19,10 +19,6 @@ def hello():
 def organization():
     return render_template('organizations.html')
 
-@app.route("/statistics")
-def stat():
-    return render_template('statistic.html')
-
 @app.route("/contact")
 def contact():
     return render_template('contact.html')
