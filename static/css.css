@@ -9,6 +9,20 @@ header.masthead {
 	color: white;
 }
 
+.centerText strong{
+	text-align: center;
+}
+.centerText p
+{
+	text-align: center;
+}
+#footerID p{
+	display: block;
+}
+#footerID table tr p{
+	margin: 40px;
+}
+
 .class2
 {
 	background-image: url('thumbnail_image001.jpg');
@@ -23,6 +37,7 @@ header.masthead {
 	height: 150px;
 	width: 300px;
 }
+
 
 .imgClass p{
 	padding-left: 80px;
@@ -39,4 +54,19 @@ header.masthead {
 	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", 
 					Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	
+}
+
+.contactTable img{
+	height:200px !important;
+	width: 200px !important;
+	margin-top: 40px !important;
+	
+}
+.contactTable th{
+	padding-left: 40px;
+}
+
+
+.contactTable #uniqueTable img{
+	margin-left: 40px;
 }

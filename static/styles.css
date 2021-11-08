@@ -96,6 +96,12 @@ hr {
   border: 0;
   opacity: 0.25;
 }
+<<<<<<< HEAD
+.centerText{
+	text-align: center;
+}
+=======
+>>>>>>> 8579e4105abd4212d7bf706b6d83c46334e6914b
 
 hr:not([size]) {
   height: 1px;
@@ -11091,8 +11097,13 @@ blockquote {
     position: fixed;
     top: -83px;
     transition: transform 0.2s;
+<<<<<<< HEAD
+    /*border-bottom: 1px solid white;*/
+    background-color: rgba(255, 255, 255, 0);
+=======
     border-bottom: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(23, 213, 67, 1);
+>>>>>>> 8579e4105abd4212d7bf706b6d83c46334e6914b
   }
   #mainNav.is-fixed .navbar-brand {
     color: #212529;
@@ -11144,6 +11155,7 @@ header.masthead .site-heading {
 }
 header.masthead .page-heading,
 header.masthead .site-heading {
+	font-size: 1rem;
   text-align: center;
 }
 header.masthead .page-heading h1, header.masthead .page-heading .h1,
